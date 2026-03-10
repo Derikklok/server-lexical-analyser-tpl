@@ -4,11 +4,31 @@ import re
 def tokenize_string(input_str: str):
     """Tokenizes the string using regular expressions."""
     
+    # Order matters: longer patterns first to avoid partial matches
     token_specification = [
+        ("FLOORDIV", r"//"),        # Floor division operator
+        ("LEQ", r"<="),             # Less than or equal
+        ("GEQ", r">="),             # Greater than or equal
+        ("EQ", r"=="),              # Equality operator
+        ("NEQ", r"!="),             # Not equal operator
+        ("DECIMAL", r"\d+\.\d+"),   # Decimal numbers
         ("NUMBER", r"\d+"),         # Integer
+        ("ID", r"[A-Za-z_][A-Za-z0-9_]*"),  # Identifiers (with underscores and digits)
         ("ASSIGN", r"="),           # Assignment operator
         ("PLUS", r"\+"),            # Plus operator
-        ("ID", r"[A-Za-z]+"),       # Identifiers (variable names)
+        ("MINUS", r"-"),            # Minus operator
+        ("MULT", r"\*"),            # Multiplication operator
+        ("DIV", r"/"),              # Division operator
+        ("MOD", r"%"),              # Modulo operator
+        ("LT", r"<"),               # Less than
+        ("GT", r">"),               # Greater than
+        ("LPAREN", r"\("),          # Left parenthesis
+        ("RPAREN", r"\)"),          # Right parenthesis
+        ("LBRACKET", r"\["),        # Left bracket
+        ("RBRACKET", r"\]"),        # Right bracket
+        ("LBRACE", r"\{"),          # Left brace
+        ("RBRACE", r"\}"),          # Right brace
+        ("COMMA", r","),            # Comma
         ("SKIP", r"[ \t\n]"),       # Skip spaces and tabs
         ("MISMATCH", r"."),         # Error for unexpected characters
     ]
