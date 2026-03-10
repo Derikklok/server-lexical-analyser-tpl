@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  lexical-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lexical-analyzer-app
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+    command: uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload

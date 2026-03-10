@@ -90,13 +90,47 @@ server/
 
 ## Running the Project
 
-### Start the API Server
+### Option 1: Run Locally
+
+#### Start the API Server
 
 ```bash
-uvicorn main:app --reload
+uv run uvicorn main:app --reload
 ```
 
 The server will start at `http://127.0.0.1:8000`
+
+### Option 2: Run with Docker Compose
+
+#### Prerequisites
+- Docker and Docker Compose installed
+
+#### Start the Application
+
+```bash
+docker-compose up
+```
+
+The server will start at `http://127.0.0.1:8000`
+
+#### Stop the Application
+
+```bash
+docker-compose down
+```
+
+#### Rebuild the Docker Image
+
+```bash
+docker-compose up --build
+```
+
+### Option 3: Run with Docker Standalone
+
+```bash
+docker build -t lexical-analyzer .
+docker run -p 8000:8000 lexical-analyzer
+```
 
 ### API Documentation
 
