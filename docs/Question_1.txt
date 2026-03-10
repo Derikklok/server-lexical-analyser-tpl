@@ -1,0 +1,10 @@
+x = 10 + 5 #exercise 01
+For the above statement in python;
+Write a function that takes the string "x = 10 + 5" as input.
+Write a function that removes all whitespace characters from the input string.
+Write a function that tokenizes the cleaned string. Use the re (regular expression)
+module in Python.
+The output should be a list of tuples, where each tuple represents a token and its type.
+For example:
+Implement basic error handling. If an unexpected character is encountered, print an
+error message indicating the character and its position in the input string.
